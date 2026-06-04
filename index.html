@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio – Muhammad Dimas Fikri Alvian</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0f0f;
+    --paper: #f5f2eb;
+    --accent: #c84b2f;
+    --accent2: #1a3a5c;
+    --muted: #6b6560;
+    --line: #d8d2c8;
+    --tag-bg: #e8e3da;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 2px solid var(--ink);
+    padding: 3rem 4rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .header-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  header h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .header-meta {
+    text-align: right;
+  }
+
+  .header-meta p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .header-meta strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ── HERO CARD ── */
+  .hero-card {
+    background: var(--accent2);
+    color: #fff;
+    border-radius: 4px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  .hero-card::before {
+    content: 'CASE STUDY';
+    position: absolute;
+    top: 2rem;
+    right: 2.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    opacity: 0.4;
+  }
+
+  .hero-card::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 40px solid rgba(255,255,255,0.05);
+  }
+
+  .hero-card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    line-height: 1.25;
+    margin-bottom: 1rem;
+    max-width: 680px;
+  }
+
+  .hero-card .subtitle {
+    font-size: 0.88rem;
+    opacity: 0.7;
+    margin-bottom: 2rem;
+    font-weight: 400;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 0.3rem 0.75rem;
+    border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+  }
+
+  .tag.dark {
+    background: var(--tag-bg);
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+
+  /* ── 3-COL GRID ── */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .card {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.75rem;
+    background: #fff;
+  }
+
+  .card-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .card h3 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .card p {
+    font-size: 0.88rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* ── FLOW SECTION ── */
+  .flow-section {
+    margin-bottom: 3rem;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .flow-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-top: 1.5rem;
+  }
+
+  .flow-step {
+    border: 1px solid var(--line);
+    border-right: none;
+    padding: 1.25rem;
+    background: #fff;
+    position: relative;
+  }
+
+  .flow-step:last-child {
+    border-right: 1px solid var(--line);
+  }
+
+  .flow-step::after {
+    content: '→';
+    position: absolute;
+    right: -0.7rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 0.9rem;
+    z-index: 1;
+    background: var(--paper);
+    width: 1.4rem;
+    text-align: center;
+  }
+
+  .flow-step:last-child::after { display: none; }
+
+  .flow-step .step-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .flow-step h4 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+  }
+
+  .flow-step p {
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* ── TWO COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.7s 0.35s ease both;
+  }
+
+  .panel {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.75rem;
+    background: #fff;
+  }
+
+  .panel h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .panel ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .panel ul li {
+    font-size: 0.85rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    line-height: 1.4;
+  }
+
+  .panel ul li::before {
+    content: '▸';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  /* ── IMPACT BAR ── */
+  .impact-section {
+    margin-bottom: 3rem;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .impact-item {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .impact-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--accent2);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .impact-item h4 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 0.2rem;
+  }
+
+  .impact-item p {
+    font-size: 0.85rem;
+    color: var(--ink);
+  }
+
+  /* ── OUTPUT HIGHLIGHT ── */
+  .output-box {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 4px;
+    padding: 2.5rem 3rem;
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    animation: fadeUp 0.7s 0.45s ease both;
+  }
+
+  .output-box h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .output-box h3 em {
+    font-style: italic;
+    color: #e8b89a;
+  }
+
+  .output-box p {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    line-height: 1.6;
+  }
+
+  .output-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .output-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    font-size: 0.85rem;
+  }
+
+  .output-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 0.45rem;
+    flex-shrink: 0;
+  }
+
+  /* ── RELEVANCE ── */
+  .relevance-section {
+    margin-bottom: 3rem;
+    animation: fadeUp 0.7s 0.5s ease both;
+  }
+
+  .role-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .role-card {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.5rem;
+    background: #fff;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .role-card:hover {
+    border-color: var(--accent2);
+    transform: translateY(-2px);
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .role-card h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .role-card p {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  footer strong {
+    color: var(--ink);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    header, main, footer { padding: 2rem 1.5rem; }
+    header { grid-template-columns: 1fr; }
+    .header-meta { text-align: left; }
+    .grid-3, .flow-grid, .role-cards { grid-template-columns: 1fr; }
+    .flow-step { border-right: 1px solid var(--line); border-bottom: none; }
+    .flow-step::after { content: '↓'; right: auto; bottom: -0.7rem; top: auto; left: 50%; transform: translateX(-50%); }
+    .two-col, .impact-grid, .output-box { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div>
+    <p class="header-label">Portfolio · Risk Management · ITS 2025</p>
+    <h1>Muhammad Dimas<br><em>Fikri Alvian</em></h1>
+  </div>
+  <div class="header-meta">
+    <p><strong>Industrial & Systems Engineering</strong></p>
+    <p>Institut Teknologi Sepuluh Nopember</p>
+    <p>Specialization · Strategic Risk Management</p>
+    <p style="margin-top:0.5rem; color:var(--accent); font-weight:500;">ISO 31000 · SOAR · RBPM</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <div class="hero-card">
+    <h2>Designing an Integrated Risk Management System for PDAM Surya Sembada</h2>
+    <p class="subtitle">Strategy Objective at Risk (SOAR) · Risk-Based Performance Management · Real Industry Project</p>
+    <div class="tag-row">
+      <span class="tag">ISO 31000</span>
+      <span class="tag">SOAR Framework</span>
+      <span class="tag">RBPM</span>
+      <span class="tag">KPI–KRI Linkage</span>
+      <span class="tag">Risk Scorecard</span>
+      <span class="tag">Probability–Impact Matrix</span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <p class="section-label">Project at a Glance</p>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-num">321</div>
+      <h3>Pages of Research</h3>
+      <p>Full-scale thesis with field data collection directly at PDAM Surya Sembada, Surabaya</p>
+    </div>
+    <div class="card">
+      <div class="card-num">4×</div>
+      <h3>Business Dimensions</h3>
+      <p>Operational, Customer Service, Financial, and Human Resource — all assessed for risk impact</p>
+    </div>
+    <div class="card">
+      <div class="card-num">4T</div>
+      <h3>Risk Responses</h3>
+      <p>Tolerate · Transfer · Treat · Terminate — mapped to every identified risk per strategic objective</p>
+    </div>
+  </div>
+
+  <!-- PROCESS FLOW -->
+  <div class="flow-section">
+    <p class="section-label">Methodology Flow</p>
+    <div class="flow-grid">
+      <div class="flow-step">
+        <p class="step-num">01</p>
+        <h4>Strategic Objective Mapping</h4>
+        <p>Identified company KPIs aligned to strategic goals</p>
+      </div>
+      <div class="flow-step">
+        <p class="step-num">02</p>
+        <h4>Risk Identification & KRI</h4>
+        <p>Developed Key Risk Indicators per KPI using SOAR approach</p>
+      </div>
+      <div class="flow-step">
+        <p class="step-num">03</p>
+        <h4>Probability & Impact Assessment</h4>
+        <p>Scored risks across 4 business dimensions with practitioner validation</p>
+      </div>
+      <div class="flow-step">
+        <p class="step-num">04</p>
+        <h4>Risk Ranking & Mapping</h4>
+        <p>Prioritized risks using risk matrix and ranking methodology</p>
+      </div>
+      <div class="flow-step">
+        <p class="step-num">05</p>
+        <h4>Risk Scorecard Output</h4>
+        <p>Visual dashboard for management monitoring and decision support</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM & APPROACH -->
+  <div class="two-col">
+    <div class="panel">
+      <h3>The Problem</h3>
+      <ul>
+        <li>PDAM Surya Sembada lacked an integrated risk system tied to strategic performance</li>
+        <li>Existing risk practices referenced ISO 31000 but were not connected to KPI achievement</li>
+        <li>No structured method to prioritize which risks posed the greatest threat to company objectives</li>
+        <li>Management had no visual tool for ongoing risk monitoring</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>My Approach</h3>
+      <ul>
+        <li>Applied SOAR (Strategy Objective at Risk) framework — linking each KPI to its risk landscape</li>
+        <li>Developed KRI for every KPI to enable early warning detection</li>
+        <li>Designed risk controls with measurable control metrics</li>
+        <li>Produced actionable risk response recommendations (Tolerate / Transfer / Treat / Terminate)</li>
+        <li>Delivered a Risk Scorecard as a practical management tool</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- IMPACT AREAS -->
+  <div class="impact-section">
+    <p class="section-label">Impact Assessment Dimensions</p>
+    <div class="impact-grid">
+      <div class="impact-item">
+        <div class="impact-icon">⚙</div>
+        <div>
+          <h4>Operational</h4>
+          <p>Process disruption, production continuity, infrastructure reliability</p>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-icon">👥</div>
+        <div>
+          <h4>Customer Service</h4>
+          <p>Service quality risk, customer satisfaction, delivery reliability</p>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-icon">💹</div>
+        <div>
+          <h4>Financial</h4>
+          <p>Revenue impact, cost exposure, budget deviation risk</p>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-icon">🧑‍💼</div>
+        <div>
+          <h4>Human Resource</h4>
+          <p>Capability gaps, workforce risk, competency alignment</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUTPUT -->
+  <div class="output-box">
+    <div>
+      <h3>Final Output:<br><em>Risk Scorecard</em></h3>
+      <p>A practical, visual management tool enabling PDAM Surya Sembada to monitor, prioritize, and respond to risks in real-time — directly linked to strategic performance objectives.</p>
+    </div>
+    <div class="output-items">
+      <div class="output-item">
+        <div class="output-dot"></div>
+        <span>Complete risk register with probability & impact scores per strategic objective</span>
+      </div>
+      <div class="output-item">
+        <div class="output-dot"></div>
+        <span>KRI dashboard for early warning signal monitoring</span>
+      </div>
+      <div class="output-item">
+        <div class="output-dot"></div>
+        <span>Risk response map: Tolerate / Transfer / Treat / Terminate per risk</span>
+      </div>
+      <div class="output-item">
+        <div class="output-dot"></div>
+        <span>Control metrics to measure effectiveness of risk mitigation actions</span>
+      </div>
+      <div class="output-item">
+        <div class="output-dot"></div>
+        <span>Increased risk maturity level for PDAM Surya Sembada</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROLE RELEVANCE -->
+  <div class="relevance-section">
+    <p class="section-label">Relevant Roles · This Project Demonstrates Readiness For</p>
+    <div class="role-cards">
+      <div class="role-card">
+        <span class="role-badge">Best Fit</span>
+        <h4>Operational Risk Analyst</h4>
+        <p>Direct application of risk identification, scoring, and response framework in operational context</p>
+      </div>
+      <div class="role-card">
+        <span class="role-badge">Strong Fit</span>
+        <h4>Process Improvement / OpEx</h4>
+        <p>KPI-KRI linkage and performance-based risk thinking translates directly to process improvement work</p>
+      </div>
+      <div class="role-card">
+        <span class="role-badge">Strong Fit</span>
+        <h4>Internal Audit Analyst</h4>
+        <p>ISO 31000 implementation experience and structured control metrics assessment</p>
+      </div>
+      <div class="role-card">
+        <span class="role-badge">Good Fit</span>
+        <h4>Business Analyst</h4>
+        <p>Analytical approach to identifying business objectives, gaps, and measurable solutions</p>
+      </div>
+      <div class="role-card">
+        <span class="role-badge">Good Fit</span>
+        <h4>Management Consultant (Risk)</h4>
+        <p>RBPM + SOAR methodology applicable across industries: BUMN, utilities, manufacturing</p>
+      </div>
+      <div class="role-card">
+        <span class="role-badge">Good Fit</span>
+        <h4>PPIC / Planning Analyst</h4>
+        <p>Risk-aware planning mindset with performance management framework background</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAGS -->
+  <p class="section-label">Skills Demonstrated</p>
+  <div class="tag-row" style="margin-bottom:3rem; animation: fadeUp 0.7s 0.55s ease both;">
+    <span class="tag dark">Risk Management</span>
+    <span class="tag dark">ISO 31000</span>
+    <span class="tag dark">SOAR Framework</span>
+    <span class="tag dark">RBPM</span>
+    <span class="tag dark">KPI Development</span>
+    <span class="tag dark">KRI Development</span>
+    <span class="tag dark">Probability–Impact Analysis</span>
+    <span class="tag dark">Risk Scorecard Design</span>
+    <span class="tag dark">Stakeholder Interviews</span>
+    <span class="tag dark">Data Validation</span>
+    <span class="tag dark">Strategic Thinking</span>
+    <span class="tag dark">Performance Management</span>
+  </div>
+
+</main>
+
+<footer>
+  <span><strong>Muhammad Dimas Fikri Alvian</strong> · Teknik Sistem dan Industri · ITS 2025</span>
+  <span>PORTFOLIO · CASE STUDY #001</span>
+</footer>
+
+</body>
+</html>
